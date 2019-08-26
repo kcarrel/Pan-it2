@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   resources :favorites
   resources :items
   resources :collections
-  resources :users
+  resources :users, only: [:create, :index]
+      post '/login', to: 'auth#create'
+      post '/profile', to: 'users#profile'
 end
